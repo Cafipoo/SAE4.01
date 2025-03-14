@@ -1,0 +1,43 @@
+{
+  "id": "1",
+  "username": "johndoe",
+  "displayName": "John Doe",
+  "bio": "Développeur Full Stack 👨‍💻 | Passionné de tech 🚀 | Gaming 🎮",
+  "location": "Paris, France",
+  "website": "https://johndoe.dev",
+  "joinedDate": "2022-03",
+  "birthDate": "1995-06-15",
+  "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=johndoe",
+  "coverImage": "https://images.unsplash.com/photo-1484417894907-623942c8ee29",
+  "stats": {
+    "following": 542,
+    "followers": 1337,
+    "posts": 420
+  },
+  "posts": [
+    {
+      "id": "1",
+      "content": "Je viens de déployer mon nouveau projet React ! 🎉",
+      "date": "2024-03-15T14:23:00Z",
+      "likes": 25,
+      "reposts": 3,
+      "replies": 8
+    },
+    {
+      "id": "2",
+      "content": "TypeScript est vraiment incroyable pour la maintenance du code. Impossible de revenir en arrière maintenant ! 💪",
+      "date": "2024-03-14T09:15:00Z",
+      "likes": 42,
+      "reposts": 12,
+      "replies": 5
+    },
+    {
+      "id": "3",
+      "content": "Les nouveautés de React 19 sont prometteuses ! Qui les a déjà testées ? 🤔",
+      "date": "2024-03-13T18:30:00Z",
+      "likes": 31,
+      "reposts": 7,
+      "replies": 15
+    }
+  ]
+} 

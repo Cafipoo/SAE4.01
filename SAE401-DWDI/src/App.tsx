@@ -1,13 +1,23 @@
+import { Routes, Route } from 'react-router-dom';
+import Login from './ui/Login';
+import Register from './ui/Register';
+import RequestReset from './ui/RequestReset';
+import ResetPassword from './ui/ResetPassword';
+import Profile from './/ui/Profile';
 
 function App() {
-
   return (
-    <>
-      <div className="flex items-center justify-center min-h-screen bg-gray-100">
-        <h1 className="text-6xl font-bold text-blue-900">Hello World</h1>
-      </div>
-    </>
-  )
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/reset-password" element={<RequestReset />} />
+      <Route path="/reset-password/new" element={<ResetPassword />} />
+      <Route path="/" element={<Login />} />
+      <Route path="/profile" element={<Profile />} />
+    </Routes>
+  );
 }
 
-export default App
+export default App;
+
+
