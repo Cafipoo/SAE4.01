@@ -1,25 +1,43 @@
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Icon from './Icon';
+import TweetModal from './TweetModal';
+import userData from '../data/user.json';
 
 const navItems = [
   { icon: "home", label: "Accueil", path: "/home" },
   { icon: "explore", label: "Explorer", path: "/explore" },
   { icon: "notifications", label: "Notifications", path: "/notifications" },
   { icon: "messages", label: "Messages", path: "/messages" },
-  { icon: "bookmarks", label: "Signets", path: "/bookmarks" },
   { icon: "profile", label: "Profil", path: "/profile" },
   { icon: "more", label: "Plus", path: "/more" }
 ];
 
 const Sidebar = () => {
   const location = useLocation();
+  const [isTweetModalOpen, setIsTweetModalOpen] = useState(false);
+
+  const handleTweet = (content: string) => {
+    // Simuler l'ajout d'un tweet
+    const newTweet = {
+      id: String(Date.now()),
+      content,
+      date: new Date().toISOString(),
+      likes: 0,
+      reposts: 0,
+      replies: 0
+    };
+    
+    console.log('Nouveau tweet:', newTweet);
+    // Ici vous ajouteriez la logique pour sauvegarder le tweet
+  };
 
   return (
     <>
       {/* Mobile Navigation */}
       <nav className="fixed bottom-0 left-0 right-0 bg-black border-t border-gray-800 md:hidden z-50">
         <div className="flex justify-around items-center h-16">
-          {navItems.slice(0, 5).map((item) => (
+          {navItems.slice(0, 4).map((item) => (
             <Link
               key={item.path}
               to={item.path}
@@ -30,6 +48,12 @@ const Sidebar = () => {
               <Icon name={item.icon} className="w-7 h-7" />
             </Link>
           ))}
+          <button
+            onClick={() => setIsTweetModalOpen(true)}
+            className="p-2 text-white bg-blue-500 rounded-full hover:bg-blue-600"
+          >
+            <Icon name="compose" className="w-7 h-7" />
+          </button>
         </div>
       </nav>
 
@@ -65,7 +89,10 @@ const Sidebar = () => {
 
           {/* Tweet Button */}
           <div className="mt-4 px-2">
-            <button className="w-full bg-blue-500 text-white rounded-full py-3 font-bold hover:bg-blue-600 transition-colors">
+            <button
+              onClick={() => setIsTweetModalOpen(true)}
+              className="w-full bg-blue-500 text-white rounded-full py-3 font-bold hover:bg-blue-600 transition-colors"
+            >
               Tweet
             </button>
           </div>
@@ -87,6 +114,12 @@ const Sidebar = () => {
           </button>
         </div>
       </div>
+
+      <TweetModal
+        isOpen={isTweetModalOpen}
+        onClose={() => setIsTweetModalOpen(false)}
+        onTweet={handleTweet}
+      />
     </>
   );
 };

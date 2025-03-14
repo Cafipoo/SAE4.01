@@ -4,6 +4,8 @@ import Register from './ui/Register';
 import RequestReset from './ui/RequestReset';
 import ResetPassword from './ui/ResetPassword';
 import Profile from './/ui/Profile';
+import AdminLogin from './ui/AdminLogin';
+import Backoffice from './ui/Backoffice';
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
       <Route path="/reset-password/new" element={<ResetPassword />} />
       <Route path="/" element={<Login />} />
       <Route path="/profile" element={<Profile />} />
+      <Route path="/admin" element={<AdminLogin />} />
+      <Route path="/backoffice" element={<Backoffice />} />
     </Routes>
   );
 }
